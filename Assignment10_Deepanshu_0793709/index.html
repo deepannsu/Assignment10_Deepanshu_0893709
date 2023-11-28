@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Inventory Website</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header class="text-center mt-3">
+            <h1>Deepanshu</h1>
+        </header>
+
+        <div class="row">
+            
+            <div class="col-md-6">
+                <img src="PowerBank.jpeg" class="img-fluid" alt="Electronic Product">
+                <p class="text-center mt-2">Power Bank</p>
+            </div>
+
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>USB cable</td>
+                            <td>$100</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Adaptor</td>
+                            <td>$150</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>Power bank</td>
+                            <td>$80</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+        <form>
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <select class="form-control" id="productName">
+            <option value="laptop">USB cable</option>
+            <option value="smartphone">Adaptor</option>
+            <option value="tablet">Power Bank</option>
+                    
+                    
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Would you like to order</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="orderSwitch">
+                    <label class="custom-control-label" for="orderSwitch"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="range" class="form-range" id="quantity" min="0" max="100">
+                <p>Selected Quantity: <span id="quantityValue">0</span></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const quantityInput = document.getElementById('quantity');
+        const quantityValue = document.getElementById('quantityValue');
+    
+        let currentValue = 0;
+    
+        quantityInput.addEventListener('input', function () {
+            const newValue = parseInt(this.value);
+    
+            if (newValue > currentValue) {
+                
+                currentValue = newValue;
+            } else if (newValue < currentValue) {
+                
+                currentValue = newValue;
+            }
+    
+            quantityValue.textContent = currentValue;
+            this.value = currentValue; 
+        });
+    </script>
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
